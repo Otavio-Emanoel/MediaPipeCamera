@@ -1,0 +1,121 @@
+.filter-buttons {
+    position: fixed;
+    bottom: 5px;
+    left: 0;
+    right: 0;
+    display: flex;
+    gap: 10px;
+    padding: 5px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    z-index: 1001;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.filter-buttons::-webkit-scrollbar {
+    display: none;
+}
+
+.filter-btn {
+    width: 75px;
+    height: 75px;
+    flex: 0 0 auto;
+    border: none;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 0 5px;
+}
+
+.filter-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.filter-btn.active {
+    background: rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+#video.filter-grayscale {
+    filter: brightness(100%) contrast(110%) grayscale(100%);
+}
+
+#video.filter-sepia {
+    filter: sepia(50%) brightness(105%) contrast(110%) saturate(120%);
+}
+
+#video.filter-saturate {
+    filter: saturate(180%) contrast(110%) brightness(110%);
+}
+
+#video.filter-contrast {
+    filter: contrast(140%) brightness(105%) saturate(110%);
+}
+
+#video.filter-blur {
+    filter: blur(3px) brightness(105%);
+}
+
+#video.filter-vintage {
+    filter: brightness(110%) contrast(120%) saturate(130%) sepia(30%) hue-rotate(-10deg);
+}
+
+#video.filter-dramatic {
+    filter: brightness(110%) contrast(150%) saturate(140%) hue-rotate(-10deg) grayscale(20%);
+}
+
+#video.filter-aesthetic {
+    filter: brightness(115%) contrast(110%) saturate(170%) hue-rotate(5deg) opacity(0.95);
+}
+
+#video.filter-cinema {
+    filter: brightness(105%) contrast(140%) saturate(120%) sepia(15%) hue-rotate(-10deg);
+}
+
+#video.filter-retro {
+    filter: brightness(110%) contrast(130%) saturate(130%) sepia(50%) hue-rotate(5deg) opacity(0.95);
+}
+
+#video.filter-dark {
+    filter: brightness(85%) drop-shadow(0px 0px 20px #000) contrast(120%) saturate(150%) sepia(50%) hue-rotate(-20deg) opacity(0.95) invert(0.2);
+}
+
+/* classes para os botões ativos com cores diferentes */
+.filter-btn[data-filter="vintage"].active {
+    background: linear-gradient(45deg, #ffd1dc, #ffd700);
+}
+
+.filter-btn[data-filter="dramatic"].active {
+    background: linear-gradient(45deg, #6a0572, #ab83a1);
+}
+
+.filter-btn[data-filter="aesthetic"].active {
+    background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+}
+
+.filter-btn[data-filter="cinema"].active {
+    background: linear-gradient(45deg, #434343, #000000);
+}
+
+.filter-btn[data-filter="retro"].active {
+    background: linear-gradient(45deg, #c79081, #dfa579);
+}
+
+.filter-btn[data-filter="dark"].active {
+    background: linear-gradient(45deg, #1a1a1a, #4a4a4a);
+    color: #fff;
+}

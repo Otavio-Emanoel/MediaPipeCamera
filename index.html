@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,15 +15,53 @@
     <meta name="application-name" content="Camera - Media Pipe">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/fontawesome.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/fontawesome.min.css">
     <link rel="stylesheet" href="./src/styles/globals.css">
 
-    <!-- <script src="./src/script/index.js" defer></script> -->
+    <!-- Media Pipe -->
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/face_mesh.js" crossorigin="anonymous"></script>
+
+    <script src="./src/script/index.js" defer></script>
 
     <title>Camera - Media Pipe</title>
 </head>
+
 <body>
-    <h1>Camera - Media Pipe</h1>
-    <video src="http://192.168.3.34:4747" id="video" muted playsinline></video>
+    <!-- <h1>Camera - Media Pipe</h1> -->
+    <div class="camera-container">
+        <video id="video" autoplay muted playsinline></video>
+        <canvas id="output" width="640" height="480"></canvas>
+    </div>
+    <div class="filter-buttons">
+        <button class="filter-btn" data-filter="normal">Normal</button>
+        <button class="filter-btn" data-filter="grayscale">P&B</button>
+        <button class="filter-btn" data-filter="sepia">Sépia</button>
+        <button class="filter-btn" data-filter="saturate">Saturado</button>
+        <button class="filter-btn" data-filter="contrast">Contraste</button>
+        <button class="filter-btn" data-filter="blur">Desfoque</button>
+        <button class="filter-btn" data-filter="vintage">Vintage</button>
+        <button class="filter-btn" data-filter="dramatic">Dramatic</button>
+        <button class="filter-btn" data-filter="aesthetic">Aesthetic</button>
+        <button class="filter-btn" data-filter="cinema">Cinema</button>
+        <button class="filter-btn" data-filter="retro">Retro</button>
+        <button class="filter-btn" data-filter="dark">Dark</button>
+        <button class="filter-btn" data-filter="dog"><img src="./src/assets/dog-filter/dog-filter.png" width="50px"
+                alt="Cachorrinho"></button>
+    </div>
+    <button class="capture-btn" id="capture-btn">
+        <i class="fas fa-camera"></i>
+    </button>
+
+    <!-- Carregar imagens -->
+
+    <img id="dogFilter" src="./src/assets/dog-filter/dog-filter.png" style="display: none;">
+
 </body>
+
 </html>

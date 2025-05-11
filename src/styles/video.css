@@ -1,8 +1,95 @@
-#video {
+.camera-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -55%);
+    z-index: 1000;
     width: 90%;
-    max-width: 480px;
+    max-width: 640px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#video {
+    width: 100%;
+    height: auto;
+    max-height: 80vh;
     border: 2px solid #000;
     border-radius: 10px;
     background-color: #000;
+    display: block;
+    object-fit: contain;
+    transform: scaleX(-1);
+}
 
+#output {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    display: none;
+}
+
+/* Capture Button */
+
+.capture-btn {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(to bottom, #EFEFF0, #909195);
+    color: #38383A;
+    border: none;
+    border-radius: 50%;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    z-index: 1001;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.5;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+}
+
+.capture-btn:active {
+    background: linear-gradient(to bottom, #2f2f35, #181717);
+    color: #fff;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.capture-btn:focus>* {
+    animation: takeShotButtonAnimation 1s ease-in-out;
+}
+
+@keyframes takeShotButtonAnimation {
+    0% {
+        transform: scale(1) translateY(0px);
+    }
+
+    10% {
+        transform: scale(1.2) translateY(-5px);
+    }
+
+    50% {
+        transform: scale(2) translateY(-20px) rotate(360deg);
+        color: #fff;
+    }
+
+    100% {
+        transform: scale(1.5) translateY(0px) rotate(360deg);
+    }
 }
